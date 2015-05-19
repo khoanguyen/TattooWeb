@@ -1,0 +1,61 @@
+﻿<div class="col-md-12">
+    <div class="row loading" data-ng-show="isLoading">
+        <img src="../../Content/images/site_images/loading.gif" style="width:30%; height:auto; margin:35%" />
+    </div>
+    <div class="row" data-ng-show="!isLoading">
+        <div class="col-md-4">
+            <h3 class="heading-title">Contact Info</h3>
+            <div class="contact-info-block">                
+                <h4>{{profile.name}}</h4>
+                <h5>Phone: {{profile.phoneNo}}</h5>
+                <h5>{{profile.address}}</h5>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h3 class="heading-title">Contact Form</h3>
+            <div class="contact-form-block">
+                <form name="contactForm" novalidate data-ng-submit="sendContact(contactForm)">
+                    <div class="row-fluid">
+                        <div class="field">
+                            <div class="col-md-4">
+                                <input name="yourName" size="40" title="Name:" type="text" placeholder="Name:" 
+                                       data-ng-class="{'validation-error' : contactForm.yourName.$dirty && contactForm.yourName.$invalid}" required 
+                                       data-ng-maxlength="50" data-ng-model="contact.yourName" />
+                                <span class="validation-error" data-ng-show="contactForm.yourName.$dirty && contactForm.yourName.$error.required">Required</span>
+                                <span class="validation-error" data-ng-show="contactForm.yourName.$dirty && contactForm.yourName.$error.maxlength">Name is too long</span>
+                            </div>
+                            <div class="col-md-4">
+                                <input name="yourEmail" size="40" title="E-mail:" type="text" placeholder="Email:"
+                                       data-ng-maxlength="50" data-ng-model="contact.yourEmail" data-ng-pattern="emailPattern"
+                                       data-ng-class="{'validation-error' : contactForm.yourEmail.$dirty && contactForm.yourEmail.$invalid}" />
+                                <span class="validation-error" data-ng-show="contactForm.yourEmail.$dirty && contactForm.yourEmail.$error.pattern">Example: someone@domain.com</span>
+                                <span class="validation-error" data-ng-show="contactForm.yourEmail.$dirty && contactForm.yourEmail.$error.maxlength">Email is too long</span>
+                            </div>
+                            <div class="col-md-4">
+                                <input name="yourPhone" size="40" title="Phone:" type="text" placeholder="Phone:"
+                                       data-ng-maxlength="20" data-ng-model="contact.yourPhone" data-ng-pattern="phonePattern"
+                                       data-ng-class="{'validation-error' : contactForm.yourPhone.$dirty && contactForm.yourPhone.$invalid}" />
+                                <span class="validation-error" data-ng-show="contactForm.yourPhone.$dirty && contactForm.yourPhone.$error.maxlength">Accept 20 characters only</span>
+                                <span class="validation-error" data-ng-show="contactForm.yourPhone.$dirty && contactForm.yourPhone.$error.pattern">Phone format: 408-448-4350 or 4084484350</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <textarea name="yourMessage" required cols="40" rows="10" title="Message:" placeholder="Message:"
+                                  data-ng-minlength="10" data-ng-maxlength="200" data-ng-model="contact.yourMessage"
+                                  data-ng-class="{'validation-error' : contactForm.yourMessage.$dirty && contactForm.yourMessage.$invalid}"></textarea>
+                        <span class="validation-error" data-ng-show="contactForm.yourMessage.$dirty && contactForm.yourMessage.$error.minlength">Message must at least 20 characters long</span>
+                        <span class="validation-error" data-ng-show="contactForm.yourMessage.$dirty && contactForm.yourMessage.$error.maxlength">Accept 200 characters only</span>
+                        <span class="validation-error" data-ng-show="contactForm.yourMessage.$dirty && contactForm.yourMessage.$error.required">Required</span>
+                    </div>
+                    <div class="submit-wrap">
+                        <input value="clear" class="btn btn-primary" type="reset" data-ng-click="onReset(contactForm)" />
+                        <input value="send" class="btn btn-primary" type="submit" data-ng-disabled="contactForm.$pristine || contactForm.$invalid" />
+                        <img data-ng-show="isSending" alt="Sending ..." src="../../Content/images/site_images/ajax-loader.gif" class="ajax-loader" />
+                    </div>
+                    <div data-ng-class="{'action-result validation-error': isError, 'action-result' : !isError}" data-ng-show="showResult">{{sentMessage}}</div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

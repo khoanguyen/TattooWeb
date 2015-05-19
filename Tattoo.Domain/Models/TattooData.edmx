@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TattooDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="ArtistImage" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NameKey" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="BriefIntro" Type="nvarchar" MaxLength="200" />
+          <Property Name="DefaultArtist" Type="bit" />
+        </EntityType>
+        <EntityType Name="ArtWork">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArtImage" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ArtDesc" Type="nvarchar" MaxLength="200" />
+          <Property Name="ArtistId" Type="int" Nullable="false" />
+          <Property Name="ShowOnIntroScreen" Type="bit" />
+        </EntityType>
+        <EntityType Name="CompanyProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Intro" Type="nvarchar" MaxLength="800" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="HomepageImage" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="ContactNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Credentials">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerFeedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerPhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="Message" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="SentDate" Type="datetime" Nullable="false" />
+          <Property Name="IsRead" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SocialConnection">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NetworkName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProfileLink" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MainImage" Type="nvarchar" MaxLength="20" />
+          <Property Name="HoverImage" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_ArtWork_Artist">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="1" />
+          <End Role="ArtWork" Type="Self.ArtWork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ArtWork">
+              <PropertyRef Name="ArtistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TattooDBModelStoreContainer">
+          <EntitySet Name="Artist" EntityType="Self.Artist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArtWork" EntityType="Self.ArtWork" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyProfile" EntityType="Self.CompanyProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Credentials" EntityType="Self.Credentials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerFeedback" EntityType="Self.CustomerFeedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SocialConnection" EntityType="Self.SocialConnection" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ArtWork_Artist" Association="Self.FK_ArtWork_Artist">
+            <End Role="Artist" EntitySet="Artist" />
+            <End Role="ArtWork" EntitySet="ArtWork" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TattooDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ArtistImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameKey" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BriefIntro" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultArtist" Type="Boolean" />
+          <NavigationProperty Name="ArtWorks" Relationship="Self.FK_ArtWork_Artist" FromRole="Artist" ToRole="ArtWork" />
+        </EntityType>
+        <EntityType Name="ArtWork">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArtImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ArtDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ArtistId" Type="Int32" Nullable="false" />
+          <Property Name="ShowOnIntroScreen" Type="Boolean" />
+          <NavigationProperty Name="Artist" Relationship="Self.FK_ArtWork_Artist" FromRole="ArtWork" ToRole="Artist" />
+        </EntityType>
+        <EntityType Name="CompanyProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Intro" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HomepageImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SocialConnection">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NetworkName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProfileLink" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MainImage" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="HoverImage" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_ArtWork_Artist">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="1" />
+          <End Role="ArtWork" Type="Self.ArtWork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ArtWork">
+              <PropertyRef Name="ArtistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TattooDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Artists" EntityType="Self.Artist" />
+          <EntitySet Name="ArtWorks" EntityType="Self.ArtWork" />
+          <EntitySet Name="CompanyProfiles" EntityType="Self.CompanyProfile" />
+          <EntitySet Name="SocialConnections" EntityType="Self.SocialConnection" />
+          <AssociationSet Name="FK_ArtWork_Artist" Association="Self.FK_ArtWork_Artist">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="ArtWork" EntitySet="ArtWorks" />
+          </AssociationSet>
+          <EntitySet Name="CustomerFeedbacks" EntityType="TattooDBModel.CustomerFeedback" />
+          <EntitySet Name="Credentials" EntityType="TattooDBModel.Credential" />
+        </EntityContainer>
+        <EntityType Name="CustomerFeedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SentDate" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="IsRead" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Credential">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TattooDBModelStoreContainer" CdmEntityContainer="TattooDBEntities">
+          <EntitySetMapping Name="Artists">
+            <EntityTypeMapping TypeName="TattooDBModel.Artist">
+              <MappingFragment StoreEntitySet="Artist">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="ArtistImage" ColumnName="ArtistImage" />
+                <ScalarProperty Name="NameKey" ColumnName="NameKey" />
+                <ScalarProperty Name="BriefIntro" ColumnName="BriefIntro" />
+                <ScalarProperty Name="DefaultArtist" ColumnName="DefaultArtist" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArtWorks">
+            <EntityTypeMapping TypeName="TattooDBModel.ArtWork">
+              <MappingFragment StoreEntitySet="ArtWork">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ArtImage" ColumnName="ArtImage" />
+                <ScalarProperty Name="ArtDesc" ColumnName="ArtDesc" />
+                <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+                <ScalarProperty Name="ShowOnIntroScreen" ColumnName="ShowOnIntroScreen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyProfiles">
+            <EntityTypeMapping TypeName="TattooDBModel.CompanyProfile">
+              <MappingFragment StoreEntitySet="CompanyProfile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Intro" ColumnName="Intro" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="HomepageImage" ColumnName="HomepageImage" />
+                <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SocialConnections">
+            <EntityTypeMapping TypeName="TattooDBModel.SocialConnection">
+              <MappingFragment StoreEntitySet="SocialConnection">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NetworkName" ColumnName="NetworkName" />
+                <ScalarProperty Name="ProfileLink" ColumnName="ProfileLink" />
+                <ScalarProperty Name="MainImage" ColumnName="MainImage" />
+                <ScalarProperty Name="HoverImage" ColumnName="HoverImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerFeedbacks">
+            <EntityTypeMapping TypeName="TattooDBModel.CustomerFeedback">
+              <MappingFragment StoreEntitySet="CustomerFeedback">
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+                <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Credentials">
+            <EntityTypeMapping TypeName="TattooDBModel.Credential">
+              <MappingFragment StoreEntitySet="Credentials">
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

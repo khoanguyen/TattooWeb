@@ -1,0 +1,8 @@
+﻿<div class="row gallery-container">
+    <h3 data-ng-show="galleryItems.length === 0">comming soon...</h3>
+    <div class="outer" data-ng-repeat="item in galleryItems">
+        <a data-ng-href="{{item.image}}" class="fancybox" data-fancybox-group="gallery" title="{{item.desc}}">
+            <img data-ng-src="{{item.thumb}}" class="gallery-thumb" />
+        </a>
+    </div>
+</div>

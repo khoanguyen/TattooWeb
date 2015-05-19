@@ -1,0 +1,8 @@
+﻿<ul id="artist-carousel">
+    <li class="nbs-flexisel-item" data-ng-repeat="item in carouselItems">
+        <a data-ng-href="#/gallery{{item.Link}}">
+            <img data-ng-src="{{item.ProfilePicture}}" title="{{item.Name}}" alt="{{item.Name}}" data-ng-click="onClickCallBack(item.Link)" />
+        </a>
+    </li>
+</ul>
+

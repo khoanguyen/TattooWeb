@@ -1,0 +1,35 @@
+﻿@model TatooWeb.Areas.ControlPanel.Models.ArtistBase
+
+@{
+    ViewBag.Title = "ArtistReview";
+    Layout = "~/Areas/ControlPanel/Views/Shared/_Layout.cshtml";
+}
+
+<div class="portlet box messageBox">
+    <span class="messageBox"></span>
+</div>
+<div class="portlet box yellow">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-reorder"></i>Artist Review
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <div class="row artist-review">
+            <div class="col-md-3">
+                <img src="@Model.Avatar" title="@Model.FullName" alt="@Model.FullName" />
+            </div>
+            <div class="col-md-9">
+                <h3>@Model.FullName</h3>
+                <h4>Phone: @Model.PhoneNo</h4>
+                <h4>Brief Intro</h4>
+                <p>@Model.BriefIntro</p>
+                <p><a href="/controlpanel/artistpanel">Back to artists page</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+

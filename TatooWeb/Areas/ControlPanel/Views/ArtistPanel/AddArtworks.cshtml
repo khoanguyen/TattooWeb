@@ -1,0 +1,170 @@
+﻿@model TatooWeb.Areas.ControlPanel.Models.AddArtworkVM
+
+@{
+    ViewBag.Title = "AddArtworks";
+    Layout = "~/Areas/ControlPanel/Views/Shared/_Layout.cshtml";
+}
+
+@section CustomStyle{
+    <link href="~/Content/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet" />
+}
+
+@section CustomScript{
+<script src="~/Content/plugins/jquery-file-upload/js/vendor/tmpl.min.js"></script>
+<script src="~/Content/plugins/jquery-file-upload/js/vendor/load-image.min.js"></script>
+<script src="~/Content/plugins/jquery-file-upload/js/vendor/canvas-to-blob.min.js"></script>
+<script src="~/Content/plugins/jquery-file-upload/js/jquery.fileupload.js"></script>
+<script src="~/Content/plugins/jquery-file-upload/js/jquery.fileupload-process.js"></script>
+<script src="~/Content/plugins/jquery-file-upload/js/jquery.fileupload-image.js"></script>
+<script src="~/Content/plugins/jquery-file-upload/js/jquery.fileupload-ui.js"></script>
+}
+
+@if (Model != null) { 
+<div class="portlet box yellow">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-reorder"></i>Upload artwork : @Model.ArtistName
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <!-- BEGIN FORM-->
+        <form method="post" id="fileupload" class="form-horizontal" enctype="multipart/form-data">
+                @Html.Hidden("id", @Model.ArtistId)
+                @Html.Hidden("name", @Model.ArtistName)
+                <div class="form-body">
+                    <div class="col-md-12">
+                        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+                        <div class="row fileupload-buttonbar">
+                            <div class="col-lg-7">
+                                <!-- The fileinput-button span is used to style the file input field as button -->
+                                <span class="btn green fileinput-button">
+                                    <i class="fa fa-plus"></i>
+                                    <span>
+                                        Add file...
+                                    </span>
+                                    <input type="file" name="arts" id="arts" multiple
+                                           @*onchange="javascript:handler.uploadPreview(this, '#arts');"*@ />
+                                </span>
+                                <button type="submit" class="btn blue start">
+                                    <i class="fa fa-upload"></i>
+                                    <span>
+                                        Start upload
+                                    </span>
+                                </button>
+                                <a href="/controlpanel/artistpanel/artworks/@Model.ArtistId" class="btn yellow cancel">
+                                    <i class="fa fa-ban"></i>
+                                    <span>
+                                        Cancel upload
+                                    </span>
+                                </a>
+                            </div>
+                            <!-- The global progress information -->
+                        </div>
+                        <!-- The table listing the files available for upload/download -->
+                        <table id="imagePreview" class="table table-striped clearfix">
+                            <tbody class="files"></tbody>
+                        </table>
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Upload Notes</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    <li>
+                                        Only image files (<strong>JPG, JPEG, PNG</strong>) are allowed.
+                                    </li>
+                                    <li>
+                                        Click here to go back to <a style="color:blue; font-weight:bold;" href="/controlpanel/artistpanel/artworks/@Model.ArtistId">@Model.ArtistName's Gallery</a> page.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        <!-- END FORM-->
+    </div>
+</div>
+}
+else
+{
+    <div class="alert alert-success">
+        <strong>Sorry!</strong> The artist you're looking for may not exist or has been deleted. Get back to <a href="/controlpanel/artistpanel" class="alert-link">artist page</a> to try again.
+    </div>
+}
+
+<script id="template-upload" type="text/x-tmpl">
+    {% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td>
+            <span class="preview"></span>
+        </td>
+        <td>
+            <p class="name">{%=file.name%}</p>
+            {% if (file.error) { %}
+            <div><span class="label label-danger">Error</span> {%=file.error%}</div>
+            {% } %}
+        </td>
+        <td>
+            <p class="size">{%=o.formatFileSize(file.size)%}</p>
+            {% if (!o.files.error) { %}
+            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+            </div>
+            {% } %}
+        </td>
+        <td>
+            {% if (!o.files.error && !i && !o.options.autoUpload) { %}
+            <button class="btn blue start">
+                <i class="fa fa-upload"></i>
+                <span>Start</span>
+            </button>
+            {% } %}
+            {% if (!i) { %}
+            <button class="btn red cancel">
+                <i class="fa fa-ban"></i>
+                <span>Cancel</span>
+            </button>
+            {% } %}
+        </td>
+    </tr>
+    {% } %}
+</script>
+<!-- The template to display files available for download -->
+<script id="template-download" type="text/x-tmpl">
+    {% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+        <td>
+            <span class="preview">
+                {% if (file.thumbnailUrl) { %}
+                <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" class="fancybox" data-fancybox-group="gallery"><img src="{%=file.thumbnailUrl%}"></a>
+                {% } %}
+            </span>
+        </td>
+        <td>
+            <p class="name">
+                {% if (file.url) { %}
+                <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
+                {% } else { %}
+                <span>{%=file.name%}</span>
+                {% } %}
+            </p>
+            {% if (file.error) { %}
+            <div><span class="label label-danger">Error</span> {%=file.error%}</div>
+            {% } %}
+        </td>
+        <td>
+            <span class="size">{%=o.formatFileSize(file.size)%}</span>
+        </td>
+        <td>
+            <button class="btn yellow cancel">
+                <i class="fa fa-ban"></i>
+                <span>Close</span>
+            </button>
+        </td>
+    </tr>
+    {% } %}
+</script>

@@ -1,0 +1,35 @@
+﻿<div class="col-md-12">
+    <div class="row loading" data-ng-show="isLoading || isReload">
+        <img src="../../Content/images/site_images/loading.gif" style="width:30%; height:auto; margin:35%" />
+    </div>
+    <div class="row" data-ng-show="!isLoading && !isReload">
+        <div class="col-md-3 pull-left">            
+            <img class="artist-image" data-ng-src="{{artistImage}}" />
+            <div class="artist-name">
+                <span>{{artistName}}</span>
+            </div>
+            <div class="artist-info">
+                <span>Phone:</span> {{contactNumber}}
+            </div>      
+        </div>
+        
+        <div gallery-directive gallery-items="works" class="col-md-9 pull-left"></div>
+    </div>
+    <div class="row" data-ng-show="!isLoading">
+        <div class="col-md-12">
+            <div class="footer-control-outer">
+                <div class="control-button-wrapper">
+                    <div class="footer-caption">
+                        <span>Orther Artists</span>
+                    </div>
+                    <div class="control-button">
+                        <img src="{{showHideButton}}" data-ng-click="showCarousel()" />
+                    </div>
+                </div>
+                <div horizontal-carousel-directive carousel-items="carousel" class="footer-content" data-ng-class="{'showCarousel' : isShowed}">
+                    <!--Carousel will display here :)-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

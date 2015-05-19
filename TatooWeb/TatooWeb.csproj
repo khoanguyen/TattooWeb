@@ -1,0 +1,1384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{13E59A76-F758-416B-87E1-94F5610F1B44}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TatooWeb</RootNamespace>
+    <AssemblyName>TatooWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Web.Http.4.0.0\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\ControlPanel\Controllers\ArtistPanelController.cs" />
+    <Compile Include="Areas\ControlPanel\Controllers\FeedbackPanelController.cs" />
+    <Compile Include="Areas\ControlPanel\Controllers\LoginController.cs" />
+    <Compile Include="Areas\ControlPanel\Controllers\PanelBaseController.cs" />
+    <Compile Include="Areas\ControlPanel\Controllers\ProfilePanelController.cs" />
+    <Compile Include="Areas\ControlPanel\ControlPanelAreaRegistration.cs" />
+    <Compile Include="Areas\ControlPanel\Models\AddArtworkVM.cs" />
+    <Compile Include="Areas\ControlPanel\Models\ArtistBase.cs" />
+    <Compile Include="Areas\ControlPanel\Models\ArtistPanelVM.cs" />
+    <Compile Include="Areas\ControlPanel\Models\ArtWorkBase.cs" />
+    <Compile Include="Areas\ControlPanel\Models\ArtworkJson.cs" />
+    <Compile Include="Areas\ControlPanel\Models\ArtworkVM.cs" />
+    <Compile Include="Areas\ControlPanel\Models\CompanyProfileBase.cs" />
+    <Compile Include="Areas\ControlPanel\Models\FeedbackBase.cs" />
+    <Compile Include="Areas\ControlPanel\Models\FeedbackVM.cs" />
+    <Compile Include="Areas\ControlPanel\Models\SocialConnectionBase.cs" />
+    <Compile Include="Areas\ControlPanel\Models\User.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ArtistCarousel.cs" />
+    <Compile Include="Models\Feedback.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SlideImage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Utils\CacheUtils.cs" />
+    <Compile Include="Utils\GetImagePath.cs" />
+    <Compile Include="Utils\ImageUtils.cs" />
+    <Compile Include="Utils\PagingUtils.cs" />
+    <Compile Include="Utils\SessionHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\controllers\commonControllers.js" />
+    <Content Include="app\controllers\controllers.js" />
+    <Content Include="app\partials\aboutPage.html" />
+    <Content Include="app\partials\contactPage.html" />
+    <Content Include="app\partials\errorPage.html" />
+    <Content Include="app\services\appUrl.js" />
+    <Content Include="app\services\urlConfig.js" />
+    <Content Include="Content\css\custom.css" />
+    <Content Include="Content\css\fonts\font.css" />
+    <Content Include="Content\images\ajax-loading.gif" />
+    <Content Include="Content\images\ajax-modal-loading.gif" />
+    <Content Include="Content\images\arrow-down.png" />
+    <Content Include="Content\images\avatar.png" />
+    <Content Include="Content\images\avatar1.jpg" />
+    <Content Include="Content\images\avatar1_small.jpg" />
+    <Content Include="Content\images\avatar2.jpg" />
+    <Content Include="Content\images\avatar3.jpg" />
+    <Content Include="Content\images\avatar3_small.jpg" />
+    <Content Include="Content\images\bg-opacity.png" />
+    <Content Include="Content\images\bg-white-lock.png" />
+    <Content Include="Content\images\bg-white.png" />
+    <Content Include="Content\images\datatable-row-openclose.png" />
+    <Content Include="Content\images\data\newgeneration_tattoo.jpg" />
+    <Content Include="Content\images\hor-menu-red-arrow.png" />
+    <Content Include="Content\images\hor-menu-search-close-white.png" />
+    <Content Include="Content\images\hor-menu-search-close.png" />
+    <Content Include="Content\images\hor-menu-search.jpg" />
+    <Content Include="Content\images\hor-menu-search.png" />
+    <Content Include="Content\images\icon-color-close.png" />
+    <Content Include="Content\images\icon-color.png" />
+    <Content Include="Content\images\icon-img-down.png" />
+    <Content Include="Content\images\icon-img-up.png" />
+    <Content Include="Content\images\inbox-nav-arrow-blue.png" />
+    <Content Include="Content\images\input-spinner.gif" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\logo-big.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\menu-toggler.png" />
+    <Content Include="Content\images\overlay-icon.png" />
+    <Content Include="Content\images\photo1.jpg" />
+    <Content Include="Content\images\photo2.jpg" />
+    <Content Include="Content\images\portlet-collapse-icon-white.png" />
+    <Content Include="Content\images\portlet-collapse-icon.png" />
+    <Content Include="Content\images\portlet-config-icon-white.png" />
+    <Content Include="Content\images\portlet-config-icon.png" />
+    <Content Include="Content\images\portlet-expand-icon-white.png" />
+    <Content Include="Content\images\portlet-expand-icon.png" />
+    <Content Include="Content\images\portlet-reload-icon-white.png" />
+    <Content Include="Content\images\portlet-reload-icon.png" />
+    <Content Include="Content\images\portlet-remove-icon-white.png" />
+    <Content Include="Content\images\portlet-remove-icon.png" />
+    <Content Include="Content\images\remove-icon-small.png" />
+    <Content Include="Content\images\search-icon-blue.png" />
+    <Content Include="Content\images\search-icon-brown.png" />
+    <Content Include="Content\images\search-icon-purple.png" />
+    <Content Include="Content\images\search-icon-red.png" />
+    <Content Include="Content\images\search-icon-white.png" />
+    <Content Include="Content\images\search-icon.png" />
+    <Content Include="Content\images\select-caret.png" />
+    <Content Include="Content\images\sidebar-menu-arrow-green-reverse.png" />
+    <Content Include="Content\images\sidebar-menu-arrow-green.png" />
+    <Content Include="Content\images\sidebar-menu-arrow-reverse.png" />
+    <Content Include="Content\images\sidebar-menu-arrow-right.png" />
+    <Content Include="Content\images\sidebar-menu-arrow.png" />
+    <Content Include="Content\images\sidebar-search-close-blue.png" />
+    <Content Include="Content\images\sidebar-search-close-brown.png" />
+    <Content Include="Content\images\sidebar-search-close-light.png" />
+    <Content Include="Content\images\sidebar-search-close-purple.png" />
+    <Content Include="Content\images\sidebar-search-close.png" />
+    <Content Include="Content\images\sidebar-toggler-blue.jpg" />
+    <Content Include="Content\images\sidebar-toggler-brown.jpg" />
+    <Content Include="Content\images\sidebar-toggler-light.jpg" />
+    <Content Include="Content\images\sidebar-toggler-purple.jpg" />
+    <Content Include="Content\images\sidebar-toggler.jpg" />
+    <Content Include="Content\images\sidebar-toggler.png" />
+    <Content Include="Content\images\site_images\read-email.png" />
+    <Content Include="Content\images\site_images\unread-email.png" />
+    <Content Include="Content\images\syncfusion-icons-white.png" />
+    <Content Include="Content\images\syncfusion-icons.png" />
+    <Content Include="Content\css\pages\about-us.css" />
+    <Content Include="Content\css\pages\blog.css" />
+    <Content Include="Content\css\pages\coming-soon.css" />
+    <Content Include="Content\css\pages\email.css" />
+    <Content Include="Content\css\pages\error.css" />
+    <Content Include="Content\css\pages\image-crop.css" />
+    <Content Include="Content\css\pages\inbox.css" />
+    <Content Include="Content\css\pages\invoice.css" />
+    <Content Include="Content\css\pages\lock.css" />
+    <Content Include="Content\css\pages\login-soft.css" />
+    <Content Include="Content\css\pages\login.css" />
+    <Content Include="Content\css\pages\news.css" />
+    <Content Include="Content\css\pages\portfolio.css" />
+    <Content Include="Content\css\pages\pricing-tables.css" />
+    <Content Include="Content\css\pages\profile.css" />
+    <Content Include="Content\css\pages\promo.css" />
+    <Content Include="Content\css\pages\search.css" />
+    <Content Include="Content\css\pages\tasks.css" />
+    <Content Include="Content\css\pages\timeline.css" />
+    <Content Include="Content\css\plugins.css" />
+    <Content Include="Content\css\style-metronic.css" />
+    <Content Include="Content\css\style-responsive.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\themes\blue.css" />
+    <Content Include="Content\css\themes\brown.css" />
+    <Content Include="Content\css\themes\default.css" />
+    <Content Include="Content\css\themes\grey.css" />
+    <Content Include="Content\css\themes\light.css" />
+    <Content Include="Content\css\themes\purple.css" />
+    <Content Include="Content\images\site_images\ajax-loader.gif" />
+    <Content Include="Content\images\site_images\button-next.png" />
+    <Content Include="Content\images\site_images\button-previous.png" />
+    <Content Include="app\directives\galleryDirective.js" />
+    <Content Include="app\directives\horizontalCarouselDirective.js" />
+    <Content Include="app\partials\galleryDirective.html" />
+    <Content Include="app\partials\galleryPage.html" />
+    <Content Include="app\partials\horizontalCarouselDirective.html" />
+    <Content Include="app\partials\mainPage.html" />
+    <Content Include="app\services\dataServices.js" />
+    <Content Include="app\models\navigationModel.js" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\common.css" />
+    <Content Include="Content\images\data\artists\billy.jpg" />
+    <Content Include="Content\images\data\artists\khoa.jpg" />
+    <Content Include="Content\images\data\artists\khuongnguyen.jpg" />
+    <Content Include="Content\images\site_images\bloopers.png" />
+    <Content Include="Content\images\site_images\body.jpg" />
+    <Content Include="Content\images\site_images\button-tray-down.png" />
+    <Content Include="Content\images\site_images\button-tray-up.png" />
+    <Content Include="Content\images\site_images\divider.gif" />
+    <Content Include="Content\images\data\facebook.png" />
+    <Content Include="Content\images\data\facebook_hover.png" />
+    <Content Include="Content\images\site_images\feed.png" />
+    <Content Include="Content\images\site_images\feed_hover.png" />
+    <Content Include="Content\images\site_images\footer.png" />
+    <Content Include="Content\images\data\google.png" />
+    <Content Include="Content\images\data\google_hover.png" />
+    <Content Include="Content\images\site_images\head_bloopers.png" />
+    <Content Include="Content\images\site_images\loading.gif" />
+    <Content Include="Content\images\site_images\logo-header.png" />
+    <Content Include="Content\images\site_images\logo-ico.png" />
+    <Content Include="Content\images\site_images\logo.png" />
+    <Content Include="Content\images\site_images\main_tail.gif" />
+    <Content Include="Content\images\site_images\progress.gif" />
+    <Content Include="Content\images\data\twitter.png" />
+    <Content Include="Content\images\data\twitter_hover.png" />
+    <Content Include="Content\plugins\bootstrap-datepicker\css\datepicker.css" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ar.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.da.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.de.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.el.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.es.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.et.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.he.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.hu.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.id.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.is.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.it.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ka.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.mk.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.no.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.sq.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.th.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.uk.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\assets\coverage.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\assets\jquery-1.7.1.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\assets\mock.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\assets\qunit-logging.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\assets\qunit.css" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\assets\qunit.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\assets\utils.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\run-qunit.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\suites\calendar-weeks.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\suites\component.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\suites\data-api.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\suites\events.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\suites\formats.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\suites\inline.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\suites\keyboard_navigation\2011.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\suites\keyboard_navigation\2012.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\suites\keyboard_navigation\all.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\suites\methods.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\suites\mouse_navigation\2011.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\suites\mouse_navigation\2012.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\suites\mouse_navigation\all.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\suites\noconflict.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\suites\options.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\tests.html" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\_coverage.html" />
+    <Content Include="Content\plugins\bootstrap-fileupload\bootstrap-fileupload.css" />
+    <Content Include="Content\plugins\bootstrap-fileupload\bootstrap-fileupload.js" />
+    <Content Include="Content\plugins\bootstrap-hover-dropdown\demo.html" />
+    <Content Include="Content\plugins\bootstrap-hover-dropdown\twitter-bootstrap-hover-dropdown.js" />
+    <Content Include="Content\plugins\bootstrap-hover-dropdown\twitter-bootstrap-hover-dropdown.min.js" />
+    <Content Include="Content\plugins\bootstrap-maxlength\bootstrap-maxlength.js" />
+    <Content Include="Content\plugins\bootstrap-maxlength\bootstrap-maxlength.min.js" />
+    <Content Include="Content\plugins\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\plugins\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\plugins\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\plugins\data-tables\DT_bootstrap.css" />
+    <Content Include="Content\plugins\data-tables\DT_bootstrap.js" />
+    <Content Include="Content\plugins\data-tables\images\sort_asc.png" />
+    <Content Include="Content\plugins\data-tables\images\sort_asc_disabled.png" />
+    <Content Include="Content\plugins\data-tables\images\sort_both.png" />
+    <Content Include="Content\plugins\data-tables\images\sort_desc.png" />
+    <Content Include="Content\plugins\data-tables\images\sort_desc_disabled.png" />
+    <Content Include="Content\plugins\data-tables\jquery.dataTables.js" />
+    <Content Include="Content\plugins\data-tables\jquery.dataTables.min.js" />
+    <Content Include="Content\plugins\excanvas.min.js" />
+    <Content Include="Content\plugins\flot\excanvas.js" />
+    <Content Include="Content\plugins\flot\excanvas.min.js" />
+    <Content Include="Content\plugins\flot\jquery.colorhelpers.js" />
+    <Content Include="Content\plugins\flot\jquery.colorhelpers.min.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.canvas.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.canvas.min.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.categories.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.categories.min.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.crosshair.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.crosshair.min.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.errorbars.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.errorbars.min.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.fillbetween.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.fillbetween.min.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.image.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.image.min.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.min.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.navigate.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.navigate.min.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.pie.min.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.resize.min.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.selection.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.selection.min.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.stack.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.stack.min.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.symbol.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.symbol.min.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.threshold.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.threshold.min.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.time.js" />
+    <Content Include="Content\plugins\flot\jquery.flot.time.min.js" />
+    <Content Include="Content\plugins\flot\jquery.js" />
+    <Content Include="Content\plugins\flot\jquery.min.js" />
+    <Content Include="Content\plugins\flot\LICENSE.txt" />
+    <Content Include="Content\plugins\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\plugins\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\plugins\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\plugins\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\plugins\font-awesome\scss\_path.scss" />
+    <Content Include="Content\plugins\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\plugins\gritter\css\jquery.gritter.css" />
+    <Content Include="Content\plugins\gritter\images\gritter-blue.png" />
+    <Content Include="Content\plugins\gritter\images\gritter-brown.png" />
+    <Content Include="Content\plugins\gritter\images\gritter-light.png" />
+    <Content Include="Content\plugins\gritter\images\gritter-long.png" />
+    <Content Include="Content\plugins\gritter\images\gritter-purple.png" />
+    <Content Include="Content\plugins\gritter\images\gritter.png" />
+    <Content Include="Content\plugins\gritter\images\ie-spacer.gif" />
+    <Content Include="Content\plugins\gritter\images_original\gritter-light.png" />
+    <Content Include="Content\plugins\gritter\images_original\gritter-long.png" />
+    <Content Include="Content\plugins\gritter\images_original\gritter.png" />
+    <Content Include="Content\plugins\gritter\images_original\ie-spacer.gif" />
+    <Content Include="Content\plugins\gritter\images_original\trees.jpg" />
+    <Content Include="Content\plugins\gritter\index.html" />
+    <Content Include="Content\plugins\gritter\js\jquery.gritter.js" />
+    <Content Include="Content\plugins\gritter\js\jquery.gritter.min.js" />
+    <Content Include="Content\plugins\jquery-file-upload\angularjs.html" />
+    <Content Include="Content\plugins\jquery-file-upload\basic-plus.html" />
+    <Content Include="Content\plugins\jquery-file-upload\basic.html" />
+    <Content Include="Content\plugins\jquery-file-upload\cors\postmessage.html" />
+    <Content Include="Content\plugins\jquery-file-upload\cors\result.html" />
+    <Content Include="Content\plugins\jquery-file-upload\css\demo-ie8.css" />
+    <Content Include="Content\plugins\jquery-file-upload\css\demo.css" />
+    <Content Include="Content\plugins\jquery-file-upload\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="Content\plugins\jquery-file-upload\css\jquery.fileupload-ui.css" />
+    <Content Include="Content\plugins\jquery-file-upload\css\style.css" />
+    <Content Include="Content\plugins\jquery-file-upload\img\loading.gif" />
+    <Content Include="Content\plugins\jquery-file-upload\img\progressbar.gif" />
+    <Content Include="Content\plugins\jquery-file-upload\index.html" />
+    <Content Include="Content\plugins\jquery-file-upload\jquery-ui.html" />
+    <Content Include="Content\plugins\jquery-file-upload\js\app.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\cors\jquery.postmessage-transport.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\cors\jquery.xdr-transport.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\jquery.fileupload-angular.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\jquery.fileupload-audio.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\jquery.fileupload-image.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\jquery.fileupload-jquery-ui.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\jquery.fileupload-process.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\jquery.fileupload-ui.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\jquery.fileupload-validate.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\jquery.fileupload-video.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\jquery.fileupload.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\jquery.iframe-transport.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\main.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\vendor\canvas-to-blob.min.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\vendor\jquery.ui.widget.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\vendor\load-image.min.js" />
+    <Content Include="Content\plugins\jquery-file-upload\js\vendor\tmpl.min.js" />
+    <Content Include="Content\plugins\jquery-file-upload\server\gae-go\static\favicon.ico" />
+    <Content Include="Content\plugins\jquery-file-upload\server\gae-go\static\robots.txt" />
+    <Content Include="Content\plugins\jquery-file-upload\server\gae-python\static\favicon.ico" />
+    <Content Include="Content\plugins\jquery-file-upload\server\gae-python\static\robots.txt" />
+    <Content Include="Content\plugins\jquery-file-upload\server\node\server.js" />
+    <Content Include="Content\plugins\jquery-file-upload\server\php\files\notes.txt" />
+    <Content Include="Content\plugins\jquery-file-upload\server\php\files\thumbnail.jpg" />
+    <Content Include="Content\plugins\jquery-file-upload\server\php\files\thumbnail\thumbnail.jpg" />
+    <Content Include="Content\plugins\jquery-file-upload\test\index.html" />
+    <Content Include="Content\plugins\jquery-file-upload\test\test.js" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\allow-page-scroll.html" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\chaining.html" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\disable-fade-out.html" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\dynamic-content.html" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\height-width.html" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\index.html" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\libs\prettify\prettify.css" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\libs\prettify\prettify.js" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\mouse-wheel.html" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\multiple-elements.html" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\navigation.html" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\nested.html" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\programmatic-scrolling.html" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\rail.html" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\scroll-events.html" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\scrollbar.html" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\start-position.html" />
+    <Content Include="Content\plugins\jquery-slimscroll\examples\style.css" />
+    <Content Include="Content\plugins\jquery-slimscroll\jquery.slimscroll.js" />
+    <Content Include="Content\plugins\jquery-slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="Content\plugins\jquery-ui\images\animated-overlay.gif" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\plugins\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\plugins\jquery-ui\jquery-ui-1.10.2.custom.min.js" />
+    <Content Include="Content\plugins\jquery-ui\jquery-ui-1.10.3.custom.js" />
+    <Content Include="Content\plugins\jquery-ui\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Content\plugins\jquery-ui\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="Content\plugins\jquery-validation\changelog.txt" />
+    <Content Include="Content\plugins\jquery-validation\demo\ajaxSubmit-integration-demo.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\captcha\captcha.js" />
+    <Content Include="Content\plugins\jquery-validation\demo\captcha\images\button.png" />
+    <Content Include="Content\plugins\jquery-validation\demo\captcha\style.css" />
+    <Content Include="Content\plugins\jquery-validation\demo\css\cmxform.css" />
+    <Content Include="Content\plugins\jquery-validation\demo\css\cmxformTemplate.css" />
+    <Content Include="Content\plugins\jquery-validation\demo\css\core.css" />
+    <Content Include="Content\plugins\jquery-validation\demo\css\reset.css" />
+    <Content Include="Content\plugins\jquery-validation\demo\css\screen.css" />
+    <Content Include="Content\plugins\jquery-validation\demo\custom-messages-data-demo.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\custom-methods-demo.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\dynamic-totals.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\errorcontainer-demo.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\file_input.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\images\bg.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\images\checked.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\images\cmxform-divider.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\images\cmxform-fieldset.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\images\loading.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\images\unchecked.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\index.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\jquerymobile.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\login\images\bg.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\login\images\header1.jpg" />
+    <Content Include="Content\plugins\jquery-validation\demo\login\images\page.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\login\images\required_star.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\login\index.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\login\screen.css" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\backRequiredGray.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\back_green-fade.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\back_nav_blue.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\blank.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\button-submit.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\favicon.ico" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\help.png" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\left-nav-callout-long.png" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\login-sprite.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\logo_marketo.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\sf.png" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\step1-24.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\step2-24.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\step3-24.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\tab-sprite.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\tab_green.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\time.png" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\toggle.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\images\warning.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\index.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\jquery.maskedinput.js" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\mktSignup.js" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\step2.htm" />
+    <Content Include="Content\plugins\jquery-validation\demo\marketo\stylesheet.css" />
+    <Content Include="Content\plugins\jquery-validation\demo\milk\bg.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\milk\index.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\milk\left_white.png" />
+    <Content Include="Content\plugins\jquery-validation\demo\milk\milk.css" />
+    <Content Include="Content\plugins\jquery-validation\demo\milk\milk.png" />
+    <Content Include="Content\plugins\jquery-validation\demo\milk\right_white.png" />
+    <Content Include="Content\plugins\jquery-validation\demo\multipart\index.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\multipart\js\jquery.maskedinput-1.0.js" />
+    <Content Include="Content\plugins\jquery-validation\demo\multipart\js\ui.accordion.js" />
+    <Content Include="Content\plugins\jquery-validation\demo\multipart\js\ui.core.js" />
+    <Content Include="Content\plugins\jquery-validation\demo\multipart\style.css" />
+    <Content Include="Content\plugins\jquery-validation\demo\radio-checkbox-select-demo.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\tabs\index.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\themerollered.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\tinymce\index.html" />
+    <Content Include="Content\plugins\jquery-validation\demo\tinymce\themes\simple\editor_template.js" />
+    <Content Include="Content\plugins\jquery-validation\demo\tinymce\themes\simple\img\icons.gif" />
+    <Content Include="Content\plugins\jquery-validation\demo\tinymce\themes\simple\langs\en.js" />
+    <Content Include="Content\plugins\jquery-validation\demo\tinymce\themes\simple\skins\default\ui.css" />
+    <Content Include="Content\plugins\jquery-validation\demo\tinymce\tiny_mce.js" />
+    <Content Include="Content\plugins\jquery-validation\dist\additional-methods.js" />
+    <Content Include="Content\plugins\jquery-validation\dist\additional-methods.min.js" />
+    <Content Include="Content\plugins\jquery-validation\dist\jquery.validate.js" />
+    <Content Include="Content\plugins\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Include="Content\plugins\jquery-validation\Gruntfile.js" />
+    <Content Include="Content\plugins\jquery-validation\lib\jquery-1.6.4.js" />
+    <Content Include="Content\plugins\jquery-validation\lib\jquery-1.7.2.js" />
+    <Content Include="Content\plugins\jquery-validation\lib\jquery-1.8.3.js" />
+    <Content Include="Content\plugins\jquery-validation\lib\jquery-1.9.0.js" />
+    <Content Include="Content\plugins\jquery-validation\lib\jquery.form.js" />
+    <Content Include="Content\plugins\jquery-validation\lib\jquery.js" />
+    <Content Include="Content\plugins\jquery-validation\lib\jquery.mockjax.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_ar.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_bg.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_ca.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_cs.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_da.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_de.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_el.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_es.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_et.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_eu.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_fa.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_fi.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_fr.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_he.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_hr.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_hu.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_it.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_ja.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_ka.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_kk.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_ko.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_lt.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_lv.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_my.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_nl.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_no.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_pl.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_pt_BR.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_pt_PT.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_ro.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_ru.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_si.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_sk.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_sl.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_sr.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_sv.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_th.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_tr.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_uk.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_vi.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_zh.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\messages_zh_TW.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\methods_de.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\methods_nl.js" />
+    <Content Include="Content\plugins\jquery-validation\localization\methods_pt.js" />
+    <Content Include="Content\plugins\jquery-validation\test\events.html" />
+    <Content Include="Content\plugins\jquery-validation\test\firebug\errorIcon.png" />
+    <Content Include="Content\plugins\jquery-validation\test\firebug\firebug.css" />
+    <Content Include="Content\plugins\jquery-validation\test\firebug\firebug.html" />
+    <Content Include="Content\plugins\jquery-validation\test\firebug\firebug.js" />
+    <Content Include="Content\plugins\jquery-validation\test\firebug\firebugx.js" />
+    <Content Include="Content\plugins\jquery-validation\test\firebug\infoIcon.png" />
+    <Content Include="Content\plugins\jquery-validation\test\firebug\warningIcon.png" />
+    <Content Include="Content\plugins\jquery-validation\test\index.html" />
+    <Content Include="Content\plugins\jquery-validation\test\jquery.js" />
+    <Content Include="Content\plugins\jquery-validation\test\large.html" />
+    <Content Include="Content\plugins\jquery-validation\test\messages.js" />
+    <Content Include="Content\plugins\jquery-validation\test\methods.js" />
+    <Content Include="Content\plugins\jquery-validation\test\qunit\qunit.css" />
+    <Content Include="Content\plugins\jquery-validation\test\qunit\qunit.js" />
+    <Content Include="Content\plugins\jquery-validation\test\rules.js" />
+    <Content Include="Content\plugins\jquery-validation\test\selects\index.html" />
+    <Content Include="Content\plugins\jquery-validation\test\tabs.html" />
+    <Content Include="Content\plugins\jquery-validation\test\test.js" />
+    <Content Include="Content\plugins\jquery.blockui.min.js" />
+    <Content Include="Content\plugins\jquery.cokie.min.js" />
+    <Content Include="Content\plugins\jquery.pulsate.min.js" />
+    <Content Include="Content\plugins\respond.min.js" />
+    <Content Include="Content\plugins\select2\select2-spinner.gif" />
+    <Content Include="Content\plugins\select2\select2.css" />
+    <Content Include="Content\plugins\select2\select2.js" />
+    <Content Include="Content\plugins\select2\select2.min.js" />
+    <Content Include="Content\plugins\select2\select2.png" />
+    <Content Include="Content\plugins\select2\select2x2.png" />
+    <Content Include="Content\plugins\select2\select2_locale_ar.js" />
+    <Content Include="Content\plugins\select2\select2_locale_bg.js" />
+    <Content Include="Content\plugins\select2\select2_locale_ca.js" />
+    <Content Include="Content\plugins\select2\select2_locale_cs.js" />
+    <Content Include="Content\plugins\select2\select2_locale_da.js" />
+    <Content Include="Content\plugins\select2\select2_locale_de.js" />
+    <Content Include="Content\plugins\select2\select2_locale_el.js" />
+    <Content Include="Content\plugins\select2\select2_locale_es.js" />
+    <Content Include="Content\plugins\select2\select2_locale_et.js" />
+    <Content Include="Content\plugins\select2\select2_locale_eu.js" />
+    <Content Include="Content\plugins\select2\select2_locale_fa.js" />
+    <Content Include="Content\plugins\select2\select2_locale_fi.js" />
+    <Content Include="Content\plugins\select2\select2_locale_fr.js" />
+    <Content Include="Content\plugins\select2\select2_locale_gl.js" />
+    <Content Include="Content\plugins\select2\select2_locale_he.js" />
+    <Content Include="Content\plugins\select2\select2_locale_hr.js" />
+    <Content Include="Content\plugins\select2\select2_locale_hu.js" />
+    <Content Include="Content\plugins\select2\select2_locale_id.js" />
+    <Content Include="Content\plugins\select2\select2_locale_is.js" />
+    <Content Include="Content\plugins\select2\select2_locale_it.js" />
+    <Content Include="Content\plugins\select2\select2_locale_ja.js" />
+    <Content Include="Content\plugins\select2\select2_locale_ko.js" />
+    <Content Include="Content\plugins\select2\select2_locale_lt.js" />
+    <Content Include="Content\plugins\select2\select2_locale_lv.js" />
+    <Content Include="Content\plugins\select2\select2_locale_mk.js" />
+    <Content Include="Content\plugins\select2\select2_locale_ms.js" />
+    <Content Include="Content\plugins\select2\select2_locale_nl.js" />
+    <Content Include="Content\plugins\select2\select2_locale_no.js" />
+    <Content Include="Content\plugins\select2\select2_locale_pl.js" />
+    <Content Include="Content\plugins\select2\select2_locale_pt-BR.js" />
+    <Content Include="Content\plugins\select2\select2_locale_pt-PT.js" />
+    <Content Include="Content\plugins\select2\select2_locale_ro.js" />
+    <Content Include="Content\plugins\select2\select2_locale_ru.js" />
+    <Content Include="Content\plugins\select2\select2_locale_sk.js" />
+    <Content Include="Content\plugins\select2\select2_locale_sv.js" />
+    <Content Include="Content\plugins\select2\select2_locale_th.js" />
+    <Content Include="Content\plugins\select2\select2_locale_tr.js" />
+    <Content Include="Content\plugins\select2\select2_locale_ua.js" />
+    <Content Include="Content\plugins\select2\select2_locale_vi.js" />
+    <Content Include="Content\plugins\select2\select2_locale_zh-CN.js" />
+    <Content Include="Content\plugins\select2\select2_locale_zh-TW.js" />
+    <Content Include="Content\plugins\select2\select2_metro.css" />
+    <Content Include="Content\plugins\uniform\css\uniform.default.css" />
+    <Content Include="Content\plugins\uniform\css\uniform.default.min.css" />
+    <Content Include="Content\plugins\uniform\images\bg-input-focus.png" />
+    <Content Include="Content\plugins\uniform\images\bg-input.png" />
+    <Content Include="Content\plugins\uniform\images\sprite.png" />
+    <Content Include="Content\plugins\uniform\images\sprite_original.png" />
+    <Content Include="Content\plugins\uniform\jquery.uniform.js" />
+    <Content Include="Content\plugins\uniform\jquery.uniform.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="libs\app.js" />
+    <Content Include="libs\backend\backendHandler.js" />
+    <Content Include="libs\backend\backendUrl.js" />
+    <Content Include="libs\form-component.js" />
+    <Content Include="libs\index.js" />
+    <Content Include="libs\jquery-migrate-1.2.1.min.js" />
+    <Content Include="libs\jquery.1.6.1.min.js" />
+    <Content Include="libs\fancybox_plugin\blank.gif" />
+    <Content Include="libs\fancybox_plugin\fancybox_loading%402x.gif" />
+    <Content Include="libs\fancybox_plugin\fancybox_loading.gif" />
+    <Content Include="libs\fancybox_plugin\fancybox_overlay.png" />
+    <Content Include="libs\fancybox_plugin\fancybox_sprite%402x.png" />
+    <Content Include="libs\fancybox_plugin\fancybox_sprite.png" />
+    <Content Include="libs\fancybox_plugin\helpers\fancybox_buttons.png" />
+    <Content Include="libs\fancybox_plugin\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="libs\fancybox_plugin\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="libs\fancybox_plugin\helpers\jquery.fancybox-media.js" />
+    <Content Include="libs\fancybox_plugin\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="libs\fancybox_plugin\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="libs\fancybox_plugin\jquery.fancybox.css" />
+    <Content Include="libs\fancybox_plugin\jquery.fancybox.js" />
+    <Content Include="libs\fancybox_plugin\jquery.fancybox.pack.js" />
+    <Content Include="libs\jquery.flexisel.js" />
+    <Content Include="libs\login.js" />
+    <Content Include="libs\supersized_plugin\img\back.png" />
+    <Content Include="libs\supersized_plugin\img\bg-black.png" />
+    <Content Include="libs\supersized_plugin\img\bg-black1.png" />
+    <Content Include="libs\supersized_plugin\img\bg-hover.png" />
+    <Content Include="libs\supersized_plugin\img\button-tray-down.png" />
+    <Content Include="libs\supersized_plugin\img\button-tray-up.png" />
+    <Content Include="libs\supersized_plugin\img\forward.png" />
+    <Content Include="libs\supersized_plugin\img\nav-bg.png" />
+    <Content Include="libs\supersized_plugin\img\nav-dot.png" />
+    <Content Include="libs\supersized_plugin\img\pause.png" />
+    <Content Include="libs\supersized_plugin\img\play.png" />
+    <Content Include="libs\supersized_plugin\img\progress-back.png" />
+    <Content Include="libs\supersized_plugin\img\progress-bar.png" />
+    <Content Include="libs\supersized_plugin\img\progress.gif" />
+    <Content Include="libs\supersized_plugin\img\thumb-back.png" />
+    <Content Include="libs\supersized_plugin\img\thumb-forward.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\css\Site.css" />
+    <Content Include="libs\angular-animate.js" />
+    <Content Include="libs\angular-animate.min.js" />
+    <Content Include="libs\angular-cookies.js" />
+    <Content Include="libs\angular-cookies.min.js" />
+    <Content Include="libs\angular-csp.css" />
+    <Content Include="libs\angular-loader.js" />
+    <Content Include="libs\angular-loader.min.js" />
+    <Content Include="libs\angular-mocks.js" />
+    <Content Include="libs\angular-resource.js" />
+    <Content Include="libs\angular-resource.min.js" />
+    <Content Include="libs\angular-route.js" />
+    <Content Include="libs\angular-route.min.js" />
+    <Content Include="libs\angular-sanitize.js" />
+    <Content Include="libs\angular-sanitize.min.js" />
+    <Content Include="libs\angular-scenario.js" />
+    <Content Include="libs\angular-touch.js" />
+    <Content Include="libs\angular-touch.min.js" />
+    <Content Include="libs\angular.js" />
+    <Content Include="libs\angular.min.js" />
+    <Content Include="libs\bootstrap.js" />
+    <Content Include="libs\bootstrap.min.js" />
+    <Content Include="libs\errors.json" />
+    <Content Include="libs\angular-touch.min.js.map" />
+    <Content Include="libs\angular-sanitize.min.js.map" />
+    <Content Include="libs\angular-route.min.js.map" />
+    <Content Include="libs\angular-resource.min.js.map" />
+    <Content Include="libs\angular-loader.min.js.map" />
+    <Content Include="libs\angular-cookies.min.js.map" />
+    <Content Include="libs\angular-animate.min.js.map" />
+    <Content Include="libs\angular.min.js.map" />
+    <Content Include="Areas\ControlPanel\Views\web.config" />
+    <Content Include="Areas\ControlPanel\Views\Shared\_Layout.cshtml" />
+    <Content Include="Content\plugins\uniform\css\uniform.default.scss" />
+    <Content Include="Content\plugins\uniform\README.textile" />
+    <Content Include="Content\plugins\gritter\README.markdown" />
+    <Content Include="Content\plugins\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\plugins\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\plugins\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\plugins\bootstrap-hover-dropdown\bower.json" />
+    <Content Include="Content\plugins\bootstrap-hover-dropdown\README.md" />
+    <Content Include="Content\plugins\jquery-slimscroll\README.md" />
+    <Content Include="Content\plugins\jquery-slimscroll\slimScroll.jquery.json" />
+    <Content Include="Content\plugins\jquery-file-upload\.gitignore" />
+    <Content Include="Content\plugins\jquery-file-upload\blueimp-file-upload.jquery.json" />
+    <Content Include="Content\plugins\jquery-file-upload\bower.json" />
+    <Content Include="Content\plugins\jquery-file-upload\CONTRIBUTING.md" />
+    <Content Include="Content\plugins\jquery-file-upload\package.json" />
+    <Content Include="Content\plugins\jquery-file-upload\README.md" />
+    <Content Include="Content\plugins\jquery-file-upload\server\gae-go\app.yaml" />
+    <Content Include="Content\plugins\jquery-file-upload\server\gae-go\app\main.go" />
+    <Content Include="Content\plugins\jquery-file-upload\server\gae-python\app.yaml" />
+    <Content Include="Content\plugins\jquery-file-upload\server\gae-python\main.py" />
+    <Content Include="Content\plugins\jquery-file-upload\server\node\.gitignore" />
+    <Content Include="Content\plugins\jquery-file-upload\server\node\package.json" />
+    <Content Include="Content\plugins\jquery-file-upload\server\node\public\files\.gitignore" />
+    <Content Include="Content\plugins\jquery-file-upload\server\node\public\files\thumbnail\.gitignore" />
+    <Content Include="Content\plugins\jquery-file-upload\server\node\tmp\.gitignore" />
+    <Content Include="Content\plugins\jquery-file-upload\server\php\index.php" />
+    <Content Include="Content\plugins\jquery-file-upload\server\php\UploadHandler.php" />
+    <Content Include="Content\plugins\bootstrap-maxlength\bootstrap-maxlength.jquery.json" />
+    <Content Include="Content\plugins\bootstrap-maxlength\bower.json" />
+    <Content Include="Content\plugins\bootstrap-maxlength\LICENSE" />
+    <Content Include="Content\plugins\bootstrap-maxlength\README.md" />
+    <Content Include="Content\plugins\select2\bower.json" />
+    <Content Include="Content\plugins\select2\LICENSE" />
+    <Content Include="Content\plugins\select2\README.md" />
+    <Content Include="Content\plugins\select2\release.sh" />
+    <Content Include="Content\plugins\select2\select2.jquery.json" />
+    <Content Include="Content\plugins\select2\select2_locale_en.js.template" />
+    <Content Include="Areas\ControlPanel\Views\Login\Index.cshtml" />
+    <Content Include="Content\plugins\jquery-validation\.gitattributes" />
+    <Content Include="Content\plugins\jquery-validation\.gitignore" />
+    <Content Include="Content\plugins\jquery-validation\.travis.yml" />
+    <Content Include="Content\plugins\jquery-validation\CONTRIBUTING.md" />
+    <Content Include="Content\plugins\jquery-validation\demo\captcha\fonts\Anorexia.ttf" />
+    <Content Include="Content\plugins\jquery-validation\demo\captcha\images\.htaccess" />
+    <Content Include="Content\plugins\jquery-validation\demo\captcha\images\image.php" />
+    <Content Include="Content\plugins\jquery-validation\demo\captcha\image_req.php" />
+    <Content Include="Content\plugins\jquery-validation\demo\captcha\index.php" />
+    <Content Include="Content\plugins\jquery-validation\demo\captcha\newsession.php" />
+    <Content Include="Content\plugins\jquery-validation\demo\captcha\process.php" />
+    <Content Include="Content\plugins\jquery-validation\demo\captcha\rand.php" />
+    <Content Include="Content\plugins\jquery-validation\package.json" />
+    <Content Include="Content\plugins\jquery-validation\README.md" />
+    <Content Include="Content\plugins\jquery-validation\todo" />
+    <Content Include="Content\plugins\jquery-validation\validation.jquery.json" />
+    <Content Include="Areas\ControlPanel\Views\ArtistPanel\Index.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\ArtistPanel\Add.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\ArtistPanel\ArtistReview.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\ArtistPanel\Edit.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\ArtistPanel\Artworks.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\ArtistPanel\ArtworkPartial.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\ArtistPanel\AddArtworks.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\ProfilePanel\Index.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\ProfilePanel\SocialConnection.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\ProfilePanel\AddSocialConnection.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\FeedbackPanel\Index.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\css\fonts\cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" />
+    <Content Include="Content\css\fonts\DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff" />
+    <Content Include="Content\css\fonts\k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" />
+    <Content Include="Content\css\fonts\MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff" />
+    <Content Include="Content\plugins\flot\Makefile" />
+    <Content Include="Content\plugins\flot\NEWS.md" />
+    <Content Include="Content\plugins\flot\PLUGINS.md" />
+    <Content Include="Content\plugins\flot\README.md" />
+    <Content Include="Content\plugins\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\plugins\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\plugins\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\plugins\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\plugins\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\plugins\font-awesome\less\core.less" />
+    <Content Include="Content\plugins\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\plugins\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\plugins\font-awesome\less\icons.less" />
+    <Content Include="Content\plugins\font-awesome\less\larger.less" />
+    <Content Include="Content\plugins\font-awesome\less\list.less" />
+    <Content Include="Content\plugins\font-awesome\less\mixins.less" />
+    <Content Include="Content\plugins\font-awesome\less\path.less" />
+    <Content Include="Content\plugins\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\plugins\font-awesome\less\spinning.less" />
+    <Content Include="Content\plugins\font-awesome\less\stacked.less" />
+    <Content Include="Content\plugins\font-awesome\less\variables.less" />
+    <Content Include="Content\plugins\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\plugins\font-awesome\scss\_core.scss" />
+    <Content Include="Content\plugins\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\plugins\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\plugins\font-awesome\scss\_list.scss" />
+    <Content Include="Content\plugins\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\plugins\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\plugins\font-awesome\scss\_spinning.scss" />
+    <Content Include="Content\plugins\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\plugins\bootstrap-datepicker\.gitignore" />
+    <Content Include="Content\plugins\bootstrap-datepicker\.hgignore" />
+    <Content Include="Content\plugins\bootstrap-datepicker\.hgtags" />
+    <Content Include="Content\plugins\bootstrap-datepicker\.travis.yml" />
+    <Content Include="Content\plugins\bootstrap-datepicker\bower.json" />
+    <Content Include="Content\plugins\bootstrap-datepicker\build\build.less" />
+    <Content Include="Content\plugins\bootstrap-datepicker\build\build_standalone.less" />
+    <Content Include="Content\plugins\bootstrap-datepicker\CHANGELOG.md" />
+    <Content Include="Content\plugins\bootstrap-datepicker\composer.json" />
+    <Content Include="Content\plugins\bootstrap-datepicker\CONTRIBUTING.md" />
+    <Content Include="Content\plugins\bootstrap-datepicker\less\datepicker.less" />
+    <Content Include="Content\plugins\bootstrap-datepicker\LICENSE" />
+    <Content Include="Content\plugins\bootstrap-datepicker\README.md" />
+    <Content Include="Content\plugins\bootstrap-datepicker\tests\README.md" />
+    <Content Include="Content\plugins\flot\API.md" />
+    <Content Include="Content\plugins\flot\build.log" />
+    <Content Include="Content\plugins\flot\CONTRIBUTING.md" />
+    <Content Include="Content\plugins\flot\FAQ.md" />
+    <None Include="libs\jquery-1.10.2.intellisense.js" />
+    <Content Include="libs\i18n\angular-locale_af-na.js" />
+    <Content Include="libs\i18n\angular-locale_af-za.js" />
+    <Content Include="libs\i18n\angular-locale_af.js" />
+    <Content Include="libs\i18n\angular-locale_am-et.js" />
+    <Content Include="libs\i18n\angular-locale_am.js" />
+    <Content Include="libs\i18n\angular-locale_ar-001.js" />
+    <Content Include="libs\i18n\angular-locale_ar-ae.js" />
+    <Content Include="libs\i18n\angular-locale_ar-bh.js" />
+    <Content Include="libs\i18n\angular-locale_ar-dz.js" />
+    <Content Include="libs\i18n\angular-locale_ar-eg.js" />
+    <Content Include="libs\i18n\angular-locale_ar-iq.js" />
+    <Content Include="libs\i18n\angular-locale_ar-jo.js" />
+    <Content Include="libs\i18n\angular-locale_ar-kw.js" />
+    <Content Include="libs\i18n\angular-locale_ar-lb.js" />
+    <Content Include="libs\i18n\angular-locale_ar-ly.js" />
+    <Content Include="libs\i18n\angular-locale_ar-ma.js" />
+    <Content Include="libs\i18n\angular-locale_ar-om.js" />
+    <Content Include="libs\i18n\angular-locale_ar-qa.js" />
+    <Content Include="libs\i18n\angular-locale_ar-sa.js" />
+    <Content Include="libs\i18n\angular-locale_ar-sd.js" />
+    <Content Include="libs\i18n\angular-locale_ar-sy.js" />
+    <Content Include="libs\i18n\angular-locale_ar-tn.js" />
+    <Content Include="libs\i18n\angular-locale_ar-ye.js" />
+    <Content Include="libs\i18n\angular-locale_ar.js" />
+    <Content Include="libs\i18n\angular-locale_bg-bg.js" />
+    <Content Include="libs\i18n\angular-locale_bg.js" />
+    <Content Include="libs\i18n\angular-locale_bn-bd.js" />
+    <Content Include="libs\i18n\angular-locale_bn-in.js" />
+    <Content Include="libs\i18n\angular-locale_bn.js" />
+    <Content Include="libs\i18n\angular-locale_ca-ad.js" />
+    <Content Include="libs\i18n\angular-locale_ca-es.js" />
+    <Content Include="libs\i18n\angular-locale_ca.js" />
+    <Content Include="libs\i18n\angular-locale_cs-cz.js" />
+    <Content Include="libs\i18n\angular-locale_cs.js" />
+    <Content Include="libs\i18n\angular-locale_da-dk.js" />
+    <Content Include="libs\i18n\angular-locale_da.js" />
+    <Content Include="libs\i18n\angular-locale_de-at.js" />
+    <Content Include="libs\i18n\angular-locale_de-be.js" />
+    <Content Include="libs\i18n\angular-locale_de-ch.js" />
+    <Content Include="libs\i18n\angular-locale_de-de.js" />
+    <Content Include="libs\i18n\angular-locale_de-li.js" />
+    <Content Include="libs\i18n\angular-locale_de-lu.js" />
+    <Content Include="libs\i18n\angular-locale_de.js" />
+    <Content Include="libs\i18n\angular-locale_el-cy.js" />
+    <Content Include="libs\i18n\angular-locale_el-gr.js" />
+    <Content Include="libs\i18n\angular-locale_el.js" />
+    <Content Include="libs\i18n\angular-locale_en-as.js" />
+    <Content Include="libs\i18n\angular-locale_en-au.js" />
+    <Content Include="libs\i18n\angular-locale_en-bb.js" />
+    <Content Include="libs\i18n\angular-locale_en-be.js" />
+    <Content Include="libs\i18n\angular-locale_en-bm.js" />
+    <Content Include="libs\i18n\angular-locale_en-bw.js" />
+    <Content Include="libs\i18n\angular-locale_en-bz.js" />
+    <Content Include="libs\i18n\angular-locale_en-ca.js" />
+    <Content Include="libs\i18n\angular-locale_en-dsrt-us.js" />
+    <Content Include="libs\i18n\angular-locale_en-dsrt.js" />
+    <Content Include="libs\i18n\angular-locale_en-fm.js" />
+    <Content Include="libs\i18n\angular-locale_en-gb.js" />
+    <Content Include="libs\i18n\angular-locale_en-gu.js" />
+    <Content Include="libs\i18n\angular-locale_en-gy.js" />
+    <Content Include="libs\i18n\angular-locale_en-hk.js" />
+    <Content Include="libs\i18n\angular-locale_en-ie.js" />
+    <Content Include="libs\i18n\angular-locale_en-in.js" />
+    <Content Include="libs\i18n\angular-locale_en-iso.js" />
+    <Content Include="libs\i18n\angular-locale_en-jm.js" />
+    <Content Include="libs\i18n\angular-locale_en-mh.js" />
+    <Content Include="libs\i18n\angular-locale_en-mp.js" />
+    <Content Include="libs\i18n\angular-locale_en-mt.js" />
+    <Content Include="libs\i18n\angular-locale_en-mu.js" />
+    <Content Include="libs\i18n\angular-locale_en-na.js" />
+    <Content Include="libs\i18n\angular-locale_en-nz.js" />
+    <Content Include="libs\i18n\angular-locale_en-ph.js" />
+    <Content Include="libs\i18n\angular-locale_en-pk.js" />
+    <Content Include="libs\i18n\angular-locale_en-pr.js" />
+    <Content Include="libs\i18n\angular-locale_en-pw.js" />
+    <Content Include="libs\i18n\angular-locale_en-sg.js" />
+    <Content Include="libs\i18n\angular-locale_en-tc.js" />
+    <Content Include="libs\i18n\angular-locale_en-tt.js" />
+    <Content Include="libs\i18n\angular-locale_en-um.js" />
+    <Content Include="libs\i18n\angular-locale_en-us.js" />
+    <Content Include="libs\i18n\angular-locale_en-vg.js" />
+    <Content Include="libs\i18n\angular-locale_en-vi.js" />
+    <Content Include="libs\i18n\angular-locale_en-za.js" />
+    <Content Include="libs\i18n\angular-locale_en-zw.js" />
+    <Content Include="libs\i18n\angular-locale_en.js" />
+    <Content Include="libs\i18n\angular-locale_es-419.js" />
+    <Content Include="libs\i18n\angular-locale_es-ar.js" />
+    <Content Include="libs\i18n\angular-locale_es-bo.js" />
+    <Content Include="libs\i18n\angular-locale_es-cl.js" />
+    <Content Include="libs\i18n\angular-locale_es-co.js" />
+    <Content Include="libs\i18n\angular-locale_es-cr.js" />
+    <Content Include="libs\i18n\angular-locale_es-do.js" />
+    <Content Include="libs\i18n\angular-locale_es-ea.js" />
+    <Content Include="libs\i18n\angular-locale_es-ec.js" />
+    <Content Include="libs\i18n\angular-locale_es-es.js" />
+    <Content Include="libs\i18n\angular-locale_es-gq.js" />
+    <Content Include="libs\i18n\angular-locale_es-gt.js" />
+    <Content Include="libs\i18n\angular-locale_es-hn.js" />
+    <Content Include="libs\i18n\angular-locale_es-ic.js" />
+    <Content Include="libs\i18n\angular-locale_es-mx.js" />
+    <Content Include="libs\i18n\angular-locale_es-ni.js" />
+    <Content Include="libs\i18n\angular-locale_es-pa.js" />
+    <Content Include="libs\i18n\angular-locale_es-pe.js" />
+    <Content Include="libs\i18n\angular-locale_es-pr.js" />
+    <Content Include="libs\i18n\angular-locale_es-py.js" />
+    <Content Include="libs\i18n\angular-locale_es-sv.js" />
+    <Content Include="libs\i18n\angular-locale_es-us.js" />
+    <Content Include="libs\i18n\angular-locale_es-uy.js" />
+    <Content Include="libs\i18n\angular-locale_es-ve.js" />
+    <Content Include="libs\i18n\angular-locale_es.js" />
+    <Content Include="libs\i18n\angular-locale_et-ee.js" />
+    <Content Include="libs\i18n\angular-locale_et.js" />
+    <Content Include="libs\i18n\angular-locale_eu-es.js" />
+    <Content Include="libs\i18n\angular-locale_eu.js" />
+    <Content Include="libs\i18n\angular-locale_fa-af.js" />
+    <Content Include="libs\i18n\angular-locale_fa-ir.js" />
+    <Content Include="libs\i18n\angular-locale_fa.js" />
+    <Content Include="libs\i18n\angular-locale_fi-fi.js" />
+    <Content Include="libs\i18n\angular-locale_fi.js" />
+    <Content Include="libs\i18n\angular-locale_fil-ph.js" />
+    <Content Include="libs\i18n\angular-locale_fil.js" />
+    <Content Include="libs\i18n\angular-locale_fr-be.js" />
+    <Content Include="libs\i18n\angular-locale_fr-bf.js" />
+    <Content Include="libs\i18n\angular-locale_fr-bi.js" />
+    <Content Include="libs\i18n\angular-locale_fr-bj.js" />
+    <Content Include="libs\i18n\angular-locale_fr-bl.js" />
+    <Content Include="libs\i18n\angular-locale_fr-ca.js" />
+    <Content Include="libs\i18n\angular-locale_fr-cd.js" />
+    <Content Include="libs\i18n\angular-locale_fr-cf.js" />
+    <Content Include="libs\i18n\angular-locale_fr-cg.js" />
+    <Content Include="libs\i18n\angular-locale_fr-ch.js" />
+    <Content Include="libs\i18n\angular-locale_fr-ci.js" />
+    <Content Include="libs\i18n\angular-locale_fr-cm.js" />
+    <Content Include="libs\i18n\angular-locale_fr-dj.js" />
+    <Content Include="libs\i18n\angular-locale_fr-fr.js" />
+    <Content Include="libs\i18n\angular-locale_fr-ga.js" />
+    <Content Include="libs\i18n\angular-locale_fr-gf.js" />
+    <Content Include="libs\i18n\angular-locale_fr-gn.js" />
+    <Content Include="libs\i18n\angular-locale_fr-gp.js" />
+    <Content Include="libs\i18n\angular-locale_fr-gq.js" />
+    <Content Include="libs\i18n\angular-locale_fr-km.js" />
+    <Content Include="libs\i18n\angular-locale_fr-lu.js" />
+    <Content Include="libs\i18n\angular-locale_fr-mc.js" />
+    <Content Include="libs\i18n\angular-locale_fr-mf.js" />
+    <Content Include="libs\i18n\angular-locale_fr-mg.js" />
+    <Content Include="libs\i18n\angular-locale_fr-ml.js" />
+    <Content Include="libs\i18n\angular-locale_fr-mq.js" />
+    <Content Include="libs\i18n\angular-locale_fr-ne.js" />
+    <Content Include="libs\i18n\angular-locale_fr-re.js" />
+    <Content Include="libs\i18n\angular-locale_fr-rw.js" />
+    <Content Include="libs\i18n\angular-locale_fr-sn.js" />
+    <Content Include="libs\i18n\angular-locale_fr-td.js" />
+    <Content Include="libs\i18n\angular-locale_fr-tg.js" />
+    <Content Include="libs\i18n\angular-locale_fr-yt.js" />
+    <Content Include="libs\i18n\angular-locale_fr.js" />
+    <Content Include="libs\i18n\angular-locale_gl-es.js" />
+    <Content Include="libs\i18n\angular-locale_gl.js" />
+    <Content Include="libs\i18n\angular-locale_gsw-ch.js" />
+    <Content Include="libs\i18n\angular-locale_gsw.js" />
+    <Content Include="libs\i18n\angular-locale_gu-in.js" />
+    <Content Include="libs\i18n\angular-locale_gu.js" />
+    <Content Include="libs\i18n\angular-locale_he-il.js" />
+    <Content Include="libs\i18n\angular-locale_he.js" />
+    <Content Include="libs\i18n\angular-locale_hi-in.js" />
+    <Content Include="libs\i18n\angular-locale_hi.js" />
+    <Content Include="libs\i18n\angular-locale_hr-hr.js" />
+    <Content Include="libs\i18n\angular-locale_hr.js" />
+    <Content Include="libs\i18n\angular-locale_hu-hu.js" />
+    <Content Include="libs\i18n\angular-locale_hu.js" />
+    <Content Include="libs\i18n\angular-locale_id-id.js" />
+    <Content Include="libs\i18n\angular-locale_id.js" />
+    <Content Include="libs\i18n\angular-locale_in.js" />
+    <Content Include="libs\i18n\angular-locale_is-is.js" />
+    <Content Include="libs\i18n\angular-locale_is.js" />
+    <Content Include="libs\i18n\angular-locale_it-ch.js" />
+    <Content Include="libs\i18n\angular-locale_it-it.js" />
+    <Content Include="libs\i18n\angular-locale_it-sm.js" />
+    <Content Include="libs\i18n\angular-locale_it.js" />
+    <Content Include="libs\i18n\angular-locale_iw.js" />
+    <Content Include="libs\i18n\angular-locale_ja-jp.js" />
+    <Content Include="libs\i18n\angular-locale_ja.js" />
+    <Content Include="libs\i18n\angular-locale_kn-in.js" />
+    <Content Include="libs\i18n\angular-locale_kn.js" />
+    <Content Include="libs\i18n\angular-locale_ko-kr.js" />
+    <Content Include="libs\i18n\angular-locale_ko.js" />
+    <Content Include="libs\i18n\angular-locale_ln-cd.js" />
+    <Content Include="libs\i18n\angular-locale_ln-cg.js" />
+    <Content Include="libs\i18n\angular-locale_ln.js" />
+    <Content Include="libs\i18n\angular-locale_lt-lt.js" />
+    <Content Include="libs\i18n\angular-locale_lt.js" />
+    <Content Include="libs\i18n\angular-locale_lv-lv.js" />
+    <Content Include="libs\i18n\angular-locale_lv.js" />
+    <Content Include="libs\i18n\angular-locale_ml-in.js" />
+    <Content Include="libs\i18n\angular-locale_ml.js" />
+    <Content Include="libs\i18n\angular-locale_mr-in.js" />
+    <Content Include="libs\i18n\angular-locale_mr.js" />
+    <Content Include="libs\i18n\angular-locale_ms-bn.js" />
+    <Content Include="libs\i18n\angular-locale_ms-my.js" />
+    <Content Include="libs\i18n\angular-locale_ms.js" />
+    <Content Include="libs\i18n\angular-locale_mt-mt.js" />
+    <Content Include="libs\i18n\angular-locale_mt.js" />
+    <Content Include="libs\i18n\angular-locale_nl-aw.js" />
+    <Content Include="libs\i18n\angular-locale_nl-be.js" />
+    <Content Include="libs\i18n\angular-locale_nl-cw.js" />
+    <Content Include="libs\i18n\angular-locale_nl-nl.js" />
+    <Content Include="libs\i18n\angular-locale_nl-sx.js" />
+    <Content Include="libs\i18n\angular-locale_nl.js" />
+    <Content Include="libs\i18n\angular-locale_no.js" />
+    <Content Include="libs\i18n\angular-locale_or-in.js" />
+    <Content Include="libs\i18n\angular-locale_or.js" />
+    <Content Include="libs\i18n\angular-locale_pl-pl.js" />
+    <Content Include="libs\i18n\angular-locale_pl.js" />
+    <Content Include="libs\i18n\angular-locale_pt-ao.js" />
+    <Content Include="libs\i18n\angular-locale_pt-br.js" />
+    <Content Include="libs\i18n\angular-locale_pt-gw.js" />
+    <Content Include="libs\i18n\angular-locale_pt-mz.js" />
+    <Content Include="libs\i18n\angular-locale_pt-pt.js" />
+    <Content Include="libs\i18n\angular-locale_pt-st.js" />
+    <Content Include="libs\i18n\angular-locale_pt.js" />
+    <Content Include="libs\i18n\angular-locale_ro-md.js" />
+    <Content Include="libs\i18n\angular-locale_ro-ro.js" />
+    <Content Include="libs\i18n\angular-locale_ro.js" />
+    <Content Include="libs\i18n\angular-locale_ru-md.js" />
+    <Content Include="libs\i18n\angular-locale_ru-ru.js" />
+    <Content Include="libs\i18n\angular-locale_ru-ua.js" />
+    <Content Include="libs\i18n\angular-locale_ru.js" />
+    <Content Include="libs\i18n\angular-locale_sk-sk.js" />
+    <Content Include="libs\i18n\angular-locale_sk.js" />
+    <Content Include="libs\i18n\angular-locale_sl-si.js" />
+    <Content Include="libs\i18n\angular-locale_sl.js" />
+    <Content Include="libs\i18n\angular-locale_sq-al.js" />
+    <Content Include="libs\i18n\angular-locale_sq.js" />
+    <Content Include="libs\i18n\angular-locale_sr-cyrl-ba.js" />
+    <Content Include="libs\i18n\angular-locale_sr-cyrl-me.js" />
+    <Content Include="libs\i18n\angular-locale_sr-cyrl-rs.js" />
+    <Content Include="libs\i18n\angular-locale_sr-cyrl.js" />
+    <Content Include="libs\i18n\angular-locale_sr-latn-ba.js" />
+    <Content Include="libs\i18n\angular-locale_sr-latn-me.js" />
+    <Content Include="libs\i18n\angular-locale_sr-latn-rs.js" />
+    <Content Include="libs\i18n\angular-locale_sr-latn.js" />
+    <Content Include="libs\i18n\angular-locale_sr.js" />
+    <Content Include="libs\i18n\angular-locale_sv-fi.js" />
+    <Content Include="libs\i18n\angular-locale_sv-se.js" />
+    <Content Include="libs\i18n\angular-locale_sv.js" />
+    <Content Include="libs\i18n\angular-locale_sw-ke.js" />
+    <Content Include="libs\i18n\angular-locale_sw-tz.js" />
+    <Content Include="libs\i18n\angular-locale_sw.js" />
+    <Content Include="libs\i18n\angular-locale_ta-in.js" />
+    <Content Include="libs\i18n\angular-locale_ta-lk.js" />
+    <Content Include="libs\i18n\angular-locale_ta.js" />
+    <Content Include="libs\i18n\angular-locale_te-in.js" />
+    <Content Include="libs\i18n\angular-locale_te.js" />
+    <Content Include="libs\i18n\angular-locale_th-th.js" />
+    <Content Include="libs\i18n\angular-locale_th.js" />
+    <Content Include="libs\i18n\angular-locale_tl.js" />
+    <Content Include="libs\i18n\angular-locale_tr-tr.js" />
+    <Content Include="libs\i18n\angular-locale_tr.js" />
+    <Content Include="libs\i18n\angular-locale_uk-ua.js" />
+    <Content Include="libs\i18n\angular-locale_uk.js" />
+    <Content Include="libs\i18n\angular-locale_ur-in.js" />
+    <Content Include="libs\i18n\angular-locale_ur-pk.js" />
+    <Content Include="libs\i18n\angular-locale_ur.js" />
+    <Content Include="libs\i18n\angular-locale_vi-vn.js" />
+    <Content Include="libs\i18n\angular-locale_vi.js" />
+    <Content Include="libs\i18n\angular-locale_zh-cn.js" />
+    <Content Include="libs\i18n\angular-locale_zh-hans-cn.js" />
+    <Content Include="libs\i18n\angular-locale_zh-hans-hk.js" />
+    <Content Include="libs\i18n\angular-locale_zh-hans-mo.js" />
+    <Content Include="libs\i18n\angular-locale_zh-hans-sg.js" />
+    <Content Include="libs\i18n\angular-locale_zh-hans.js" />
+    <Content Include="libs\i18n\angular-locale_zh-hant-hk.js" />
+    <Content Include="libs\i18n\angular-locale_zh-hant-mo.js" />
+    <Content Include="libs\i18n\angular-locale_zh-hant-tw.js" />
+    <Content Include="libs\i18n\angular-locale_zh-hant.js" />
+    <Content Include="libs\i18n\angular-locale_zh-hk.js" />
+    <Content Include="libs\i18n\angular-locale_zh-tw.js" />
+    <Content Include="libs\i18n\angular-locale_zh.js" />
+    <Content Include="libs\i18n\angular-locale_zu-za.js" />
+    <Content Include="libs\i18n\angular-locale_zu.js" />
+    <Content Include="libs\jquery-1.10.2.js" />
+    <Content Include="libs\jquery-1.10.2.min.js" />
+    <None Include="libs\jquery.validate-vsdoc.js" />
+    <Content Include="libs\jquery.validate.js" />
+    <Content Include="libs\jquery.validate.min.js" />
+    <Content Include="libs\jquery.validate.unobtrusive.js" />
+    <Content Include="libs\jquery.validate.unobtrusive.min.js" />
+    <Content Include="libs\modernizr-2.6.2.js" />
+    <Content Include="libs\respond.js" />
+    <Content Include="libs\respond.min.js" />
+    <Content Include="libs\supersized_plugin\css\supersized.css" />
+    <Content Include="libs\supersized_plugin\js\jquery.easing.min.js" />
+    <Content Include="libs\supersized_plugin\js\supersized.3.2.7.js" />
+    <Content Include="libs\supersized_plugin\js\supersized.3.2.7.min.js" />
+    <Content Include="libs\supersized_plugin\theme\supersized.shutter.css" />
+    <Content Include="libs\supersized_plugin\theme\supersized.shutter.js" />
+    <Content Include="libs\supersized_plugin\theme\supersized.shutter.min.js" />
+    <Content Include="libs\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="libs\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="libs\version.json" />
+    <Content Include="Views\Home\Main.cshtml" />
+    <None Include="Properties\PublishProfiles\localhost.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\images\data\arts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tattoo.Domain\Tattoo.Domain.csproj">
+      <Project>{40d8d272-0646-438c-b9eb-6ad761014517}</Project>
+      <Name>Tattoo.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Khoa|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6280</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6280/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

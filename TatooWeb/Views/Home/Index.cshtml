@@ -1,0 +1,81 @@
+﻿@model Tattoo.Domain.Models.CompanyProfile
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>New Generation - Tattoo</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="icon" href="~/Content/images/site_images/logo-ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="~/libs/supersized_plugin/css/supersized.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="~/libs/supersized_plugin/theme/supersized.shutter.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="~/Content/css/common.css" type="text/css" media="screen" />
+</head>
+
+<body>
+    <div class="slide-logo">
+        <div><a href="/home/main">
+            <img src="~/Content/images/site_images/logo.png" title="Go to main page"/></a>
+        </div>
+        <div>
+            <a href="/home/main">new generation</a> <br/>
+            <a href="/home/main">tattoo</a>
+        </div>
+        <div class="contact-info">
+            <span class="phone-no">@Model.ContactNumber</span><br/>
+            <span class="address">@Model.CompanyAddress</span>
+        </div>
+    </div>
+
+    <!--End of styles-->
+    <!--Thumbnail Navigation-->
+    <div id="prevthumb" title="Previous"></div>
+    <div id="nextthumb" title="Next"></div>
+
+    <!--Arrow Navigation-->
+    <a id="prevslide" class="load-item" title="Previous"></a>
+    <a id="nextslide" class="load-item" title="Next"></a>
+
+    <div id="thumb-tray" class="load-item">
+        <div id="thumb-back"></div>
+        <div id="thumb-forward"></div>
+    </div>
+
+    <!--Time Bar-->
+    <div id="progress-back" class="load-item">
+        <div id="progress-bar"></div>
+    </div>
+
+    <!--Control Bar-->
+    <div id="controls-wrapper" class="load-item">
+        <div id="controls">
+            <a id="play-button" title="Pause/Play"><img id="pauseplay" src="~/libs/supersized_plugin/img/pause.png" /></a>
+
+            <!--Slide counter-->
+            <div id="slidecounter">
+                <span class="slidenumber"></span> / <span class="totalslides"></span>
+            </div>
+
+            <!--Slide captions displayed here-->
+            <div id="slidecaption"></div>
+
+            <!--Thumb Tray button-->
+            <a id="tray-button"><img id="tray-arrow" src="~/libs/supersized_plugin/img/button-tray-up.png" /></a>
+
+            <!--Navigation-->
+            <ul id="slide-list"></ul>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="~/libs/jquery.1.6.1.min.js"></script>
+    <script type="text/javascript" src="~/libs/supersized_plugin/js/jquery.easing.min.js"></script>
+
+    <script type="text/javascript" src="~/libs/supersized_plugin/js/supersized.3.2.7.min.js"></script>
+    <script type="text/javascript" src="~/libs/supersized_plugin/theme/supersized.shutter.js"></script>
+
+    <script type="text/javascript" src="~/libs/index.js"></script>
+</body>
+</html>

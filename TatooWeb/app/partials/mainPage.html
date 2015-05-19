@@ -1,0 +1,18 @@
+﻿<div class="col-md-12">
+    <div class="row" style="height:200px; width:100%;padding:0 40%" data-ng-show="isLoading">
+        <img src="../../Content/images/site_images/loading.gif" style="width:30%; height:auto; margin:35%" />
+    </div>
+    <div class="row" data-ng-show="!isLoading">
+        <div class="col-md-4 pull-left">
+            <h3 class="greeting">{{introTitle}}</h3>
+            <div class="greeting">
+                {{intro}}
+            </div>
+        </div>
+        <div class="col-md-8 pull-left">
+            <div class="big-image-wrapper">
+                <img data-ng-src="{{homeImage}}" class="tattoo-big-image" />
+            </div>
+        </div>
+    </div>    
+</div>

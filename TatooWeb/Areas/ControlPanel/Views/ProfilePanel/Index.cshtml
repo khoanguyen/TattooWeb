@@ -1,0 +1,157 @@
+﻿@model TatooWeb.Areas.ControlPanel.Models.CompanyProfileBase
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ControlPanel/Views/Shared/_Layout.cshtml";
+}
+
+@section CustomStyle{
+<link rel="stylesheet" type="text/css" href="@Href("~/Content/plugins/bootstrap-fileupload/bootstrap-fileupload.css")" />
+}
+
+
+<div class="portlet box yellow">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-reorder"></i>Company profile
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <!-- BEGIN FORM-->
+        @using(Html.BeginForm("Index","ProfilePanel",FormMethod.Post, new {@class="form-horizontal", @method="post", @enctype="multipart/form-data"}))
+        {
+            @Html.HiddenFor(i => i.HomepageImage)
+            <div class="form-actions top fluid">
+                <div class="col-md-offset-3 col-md-9">
+                    <button type="submit" class="btn green">Submit</button>
+                    <button type="reset" class="btn default">Cancel</button>
+                </div>
+            </div>
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Home Page Image<span class="required"></span></label>
+                    <div class="col-md-9">
+                        <img src="@Model.HomepageImage" class="home-page-image-thumb" id="home-page-image-thumb" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">New Image</label>
+                    <div class="col-md-9">
+                        <div class="fileupload fileupload-new" data-provides="fileupload">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <span class="uneditable-input">
+                                        <i class="fa fa-file fileupload-exists"></i>
+                                        <span class="fileupload-preview"></span>
+                                    </span>
+                                </span>
+                                <span class="btn default btn-file">
+                                    <span class="fileupload-new">
+                                        <i class="fa fa-paper-clip"></i>Select file
+                                    </span>
+                                    <span class="fileupload-exists">
+                                        <i class="fa fa-undo"></i>Change
+                                    </span>
+                                    <input name="profileImage" id="profileImage" class="default" type="file">
+                                </span>
+                                <a href="#" class="btn red fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash-o"></i>Remove</a>
+                            </div>
+                        </div>
+                        <span class="help-block">
+                            Support file types: jpeg, jpg, png
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Company Address</label>
+                    <label class="col-md-9 control-label company-profile">
+                        @Model.CompanyAddress &nbsp;&nbsp;&nbsp;
+                        [<a href="javascript:void;" onclick="javascript: handler.enableEdit('CompanyAddress');">Edit</a>]
+                    </label>
+                </div>
+                <div class="form-group hidden" id="CompanyAddress">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.CompanyAddress,
+                                         new
+                                         {
+                                             @class = "form-control maxlengthCheck",
+                                             @maxlength = "200",
+                                             @placeholder = "Company address - Maximum 200 characters"
+                                         })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Phone No.</label>
+                    <label class="col-md-9 control-label company-profile">
+                        @Model.ContactNumber &nbsp;&nbsp;&nbsp;
+                        [<a href="javascript:void;" onclick="javascript: handler.enableEdit('ContactNumber');">Edit</a>]
+                    </label>
+                </div>
+                <div class="form-group hidden" id="ContactNumber">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.ContactNumber,
+                                         new
+                                         {
+                                             @class = "form-control maxlengthCheck",
+                                             @maxlength = "20",
+                                             @placeholder = "Phone number - Maximum 20 characters"
+                                         })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Intro title</label>
+                    <label class="col-md-9 control-label company-profile">
+                        @Model.Title &nbsp;&nbsp;&nbsp;
+                        [<a href="javascript:void;" onclick="javascript: handler.enableEdit('Title');">Edit</a>]
+                    </label>
+                </div>
+                <div class="form-group hidden" id="Title">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.Title,
+                                         new
+                                         {
+                                             @class = "form-control maxlengthCheck",
+                                             @maxlength = "50",
+                                             @placeholder = "Home page intro title - Maximum 50 characters"
+                                         })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Intro</label>
+                    <label class="col-md-9 control-label company-profile">
+                        @Model.Intro  &nbsp;&nbsp;&nbsp;
+                        [<a href="javascript:void;" onclick="javascript: handler.enableEdit('Intro');">Edit</a>]
+                    </label>
+                </div>
+                <div class="form-group last hidden" id="Intro">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-9">
+                        @Html.TextAreaFor(m => m.Intro,
+                                         new
+                                         {
+                                             @class = "form-control maxlengthCheck",
+                                             @maxlength = "800",
+                                             @rows = "10",
+                                             @placeholder = "Home page intro article - Maximum 800 characters"
+                                         })
+                        <span class="help-block">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions fluid">
+                <div class="col-md-offset-3 col-md-9">
+                    <button type="submit" class="btn green">Submit</button>
+                    <button type="reset" class="btn default">Cancel</button>
+                </div>
+            </div>
+        }
+        <!-- END FORM-->
+    </div>
+</div>

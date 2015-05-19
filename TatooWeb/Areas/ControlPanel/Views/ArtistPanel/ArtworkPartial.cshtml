@@ -1,0 +1,124 @@
+﻿@model TatooWeb.Areas.ControlPanel.Models.ArtworkVM
+
+<div class="table-scrollable">
+    <table class="table table-striped table-bordered table-hover dataTable">
+        <thead>
+            <tr role="row">
+                <th style="width: 175px;" colspan="1" rowspan="1" tabindex="0" role="columnheader">
+                    Thumbnail
+                </th>
+                <th style="width: 298px;" colspan="1" rowspan="1" role="columnheader">
+                    Description
+                </th>
+                <th style="width: 122px;" colspan="1" rowspan="1" tabindex="0" role="columnheader">
+                    Show on intro screen
+                </th>
+                <th style="width: 99px;" colspan="1" rowspan="1" role="columnheader">
+                    Edit
+                </th>
+                <th style="width: 99px;" colspan="1" rowspan="1" role="columnheader">
+                    Delete
+                </th>
+            </tr>
+        </thead>
+
+        <tbody aria-relevant="all" aria-live="polite" role="alert">
+            @{
+                var trClass = string.Empty;
+                var overdue = string.Empty;
+                var count = 1;
+                foreach (var art in Model.Artworks)
+                {
+                    trClass = count % 2 == 0 ? "even" : "odd";
+
+                    <tr class="@trClass">
+                        <td class="artwork-thumb">
+                            <a href="@art.ArtImageUrl" class="fancybox" data-fancybox-group="gallery" title="@art.ArtDesc">
+                                <img src="@art.ThumbnailUrl" id="thumb-@art.Id" />
+                            </a>
+                        </td>
+                        <td>
+                            <span id="desc-@art.Id">@art.ArtDesc</span>
+                        </td>
+                        <td>
+                            @if (art.ShowOnIntroScreen)
+                            {
+                                <span class="label label-sm label-success" id="show-@art.Id">
+                                    Yes
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="label label-sm label-default" id="show-@art.Id">
+                                    No
+                                </span>
+                            }
+                        </td>
+
+                        <td class="text-center">
+                            <a data-toggle="modal" href="#editForm" onclick="javascript:handler.openEditArtworkModal(@art.Id);">Edit</a>
+                        </td>
+                        <td class="text-center">
+                            <a data-toggle="modal" href="#static"
+                               onclick="javascript:handler.openDeleteArtworkModal(@art.Id, '@art.ThumbnailUrl');">Delete</a>
+                        </td>
+                    </tr>
+                            count++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    @{
+        var page = Model.PageInfo;
+        var liClass = "active";
+        var viewPage = page.CurrentPage > 5 ? page.CurrentPage - 3 : 1;
+        var viewPageCount = 0;
+        <div class="col-md-5 col-sm-12">
+            <div class="dataTables_info">Show @(page.TotalRecord == 0 ? 0 : page.StartRecord) to @page.EndRecord of @page.TotalRecord items</div>
+        </div>
+        <div class="col-md-7 col-sm-12">
+            <div class="dataTables_paginate paging_bootstrap">
+                <ul style="visibility: visible;" class="pagination">
+                    @if (page.CurrentPage == 1)
+                    {
+                        <li class="prev disabled"><a href="javascript:void();" title="Prev"><i class="fa fa-angle-left"></i></a></li>
+                    }
+                    else
+                    {
+                        <li class="prev"><a href="javascript:handler.reloadArtworks(@Model.ArtistId, @page.CurrentPage-1)" title="Prev"><i class="fa fa-angle-left"></i></a></li>
+                    }
+
+                    @for (int i = viewPage; i <= page.TotalPage; i++)
+                    {
+                        if (viewPageCount == 5) { break; }
+                        if (i == page.CurrentPage)
+                        {
+                            <li class="active"><a href="javascript:handler.reloadArtworks(@Model.ArtistId, @i)">@i</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="javascript:handler.reloadArtworks(@Model.ArtistId, @i)">@i</a></li>
+                        }
+                        viewPageCount += 1;
+                    }
+
+                    @if (page.CurrentPage == page.TotalPage)
+                    {
+                        <li class="next disabled"><a href="javascript:void();" title="Next"><i class="fa fa-angle-right"></i></a></li>
+                    }
+                    else
+                    {
+                        <li class="next"><a href="javascript:handler.reloadArtworks(@Model.ArtistId, @page.CurrentPage+1)" title="Next"><i class="fa fa-angle-right"></i></a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+

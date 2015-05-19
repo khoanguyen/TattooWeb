@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" dir="ltr" lang="en-US"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" dir="ltr" lang="en-US"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" dir="ltr" lang="en-US"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" dir="ltr" lang="en-US"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="ltr" lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="utf-8" />
+        <title>New Generation Tattoo</title>
+        <link rel="icon" href="~/Content/images/site_images/logo-ico.png" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        <link rel="stylesheet" href="~/libs/fancybox_plugin/jquery.fancybox.css" />
+        <link rel="stylesheet" type="text/css" href="~/libs/fancybox_plugin/helpers/jquery.fancybox-buttons.css" />
+    </head>
+<body data-ng-app="tattooApp">
+    <div class="main-holder">
+        <header class="header">
+            <div class="container" data-ng-controller="NavController">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row spacing"></div>
+                        <div class="row">
+                            <div class="contact-info">
+                                <span class="phone-no">@(TatooWeb.Utils.CacheUtils.GetCompanyProfileCache().ContactNumber)</span><br />
+                                <span class="address">@(TatooWeb.Utils.CacheUtils.GetCompanyProfileCache().CompanyAddress)</span>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="logo pull-left">
+                                    <a href="/home/main">
+                                        <img src="~/Content/images/site_images/logo-header.png" alt="Tattoo" title="New Generation Tattoo">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <nav class="nav nav-primary clearfix">
+                                    <ul class="sf-menu">
+                                        <li data-ng-repeat="menu in menuItems | orderBy:id" data-ng-click="getClass(menu.id)" data-ng-class="{'current-menu-item': menu.current }">
+                                            <a href="#{{menu.link}}">{{menu.menuTitle}}</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav class="nav footer-nav sl-menu">
+                            <ul>
+                                <li data-ng-repeat="menu in menuItems | orderBy:id" data-ng-click="getClass(menu.id)" data-ng-class="{'current-menu-item': menu.current }">
+                                    <a href="#{{menu.link}}">{{menu.menuTitle}}</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        @*<select class="sl-menu" data-ng-change="optionNav(menu.id,menu.link)">
+                                <option data-ng-repeat="menu in menuItems | orderBy:id" data-ng-click="optionNav(menu.id,menu.link)" ng-selected="menu.current">
+                                    {{menu.menuTitle}}
+                                </option>
+                            </select>*@
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="content-holder clearfix">
+            <div class="container">
+                @RenderSection("bodyContent", required: true)
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div>
+                                    <ul class="social social-row clearfix list-unstyled" data-ng-controller="SocialNetworkController">
+                                        <li class="social_li" data-ng-repeat="network in socialNetworks" title="{{network.networkName}}">
+                                            <a class="social_link" href="{{network.link}}">
+                                                <img data-ng-mouseover="changeImage(network)" data-ng-mouseleave="changeImage(network)" data-ng-src="{{network.image}}" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-8" data-ng-controller="NavController">
+                                <nav class="nav footer-nav">
+                                    <ul>
+                                        <li data-ng-repeat="menu in menuItems | orderBy:id" data-ng-click="getClass(menu.id)" data-ng-class="{'current-menu-item': menu.current }">
+                                            <a href="#{{menu.link}}">{{menu.menuTitle}}</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="row copyright">
+                            <div class="col-md-12">
+                                <div class="footer-text">
+                                    <a href="/home/main" title="New Generation Tattoo" class="site-name">New Generation Tattoo</a> &copy; 2014 <i>|</i> <b>
+                                        <a href="" title="Privacy Policy">Privacy Policy</a>
+                                    </b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        // Initialize baseUrl
+        var appBaseUrl = window.location.protocol + "//" + window.location.host + "@Request.ApplicationPath";
+
+        window.tattooWeb = { baseUrl: appBaseUrl, angularBaseUrl: appBaseUrl + "app/" };
+
+        // Don't use window.location.protocol + "//" + window.location.host + "/app/"
+        // because it won't work when hosting as a virtual directory e.g. http://localhost/abc/ will always return localhost only
+    </script>
+
+    @Scripts.Render("~/angularjs")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="@Href("~/app/models/navigationModel.js")"></script>
+    <script type="text/javascript" src="@Href("~/app/services/urlConfig.js")"></script>
+    <script type="text/javascript" src="@Href("~/app/app.js")"></script>
+    <script type="text/javascript" src="~/app/services/appUrl.js"></script>
+    <script type="text/javascript" src="@Href("~/app/controllers/commonControllers.js")"></script>
+    <script type="text/javascript" src="@Href("~/app/controllers/controllers.js")"></script>
+    <script type="text/javascript" src="@Href("~/libs/fancybox_plugin/jquery.fancybox.js")"></script>
+    <script type="text/javascript" src="~/libs/fancybox_plugin/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+    <script type="text/javascript" src="@Href("~/libs/jquery.flexisel.js")"></script>
+    <script type="text/javascript" src="@Href("~/app/directives/horizontalCarouselDirective.js")"></script>
+    <script type="text/javascript" src="@Href("~/app/directives/galleryDirective.js")"></script>
+</body>
+</html>
